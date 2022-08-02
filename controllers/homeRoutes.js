@@ -2,6 +2,9 @@ const router = require('express').Router()
 const {Post,User, Reply} = require('../models')
 const withAuth = require('../utils/auth')
 
+// These are routes that go into the URL. They are not for fetch requests.
+
+// This takes users to the homepage
 router.get('/', async (req, res) => {
     try {
         const allPosts = await Post.findAll({
@@ -34,6 +37,7 @@ router.get('/', async (req, res) => {
     }
 })
 
+// This takes users to an individual post, based on post_id
 router.get('/post/:id', async (req, res) => {
     try {
         const postFromId = await Post.findByPk(req.params.id, {
@@ -56,6 +60,7 @@ router.get('/post/:id', async (req, res) => {
     }
 })
 
+// This takes users to login page
 router.get('/login', (req,res) => {
     if (req.session.logged_in) {
         res.redirect('/dashboard')
@@ -64,7 +69,7 @@ router.get('/login', (req,res) => {
 
     res.render('login')
 })
-
+// This takes uers to registration page
 router.get('/register', (req,res) => {
     if (req.session.logged_in) {
         res.redirect('dashboard')
@@ -73,7 +78,7 @@ router.get('/register', (req,res) => {
 
     res.render('register')
 })
-
+// This takes users to dashboard
 router.get('/dashboard', async (req, res) => {
     try {
         if(req.session.logged_in) {
@@ -105,7 +110,7 @@ router.get('/dashboard', async (req, res) => {
         res.status(500).json(err)
     } 
 })
-
+// This takes users to the writepost page
 router.get('/writepost', async (req,res) => {
     try {
         if(req.session.logged_in) {
@@ -117,7 +122,7 @@ router.get('/writepost', async (req,res) => {
         res.status(500).json(err)
     }
 })
-
+// Thsi takes users to the edit post based on post_id
 router.get('/editpost/:id', async (req, res) => {
     try {
         if(req.session.logged_in) {
