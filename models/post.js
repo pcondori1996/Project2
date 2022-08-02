@@ -10,7 +10,7 @@ Post.init(
             allowNull: false,
         },
         content: {
-            type: DataTypes.STRING
+            type: DataTypes.TEXT
         },
         time_posted: {
             type: DataTypes.DATE,
@@ -18,16 +18,20 @@ Post.init(
             defaultValue: DataTypes.NOW,
         },
         category: {
-            type: DataTypes.DATE,
+            type: DataTypes.STRING,
             allowNull: false,
         },
         url: {
-            type: DataTypes.STRING,
+            type: DataTypes.TEXT,
             isUrl: true, 
         }
     },
     {
-        sequelize
+        sequelize,
+        timestamps: false,
+        freezeTableName: true,
+        underscored: true,
+        modelName: 'post',
     }
 )
 

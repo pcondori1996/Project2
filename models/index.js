@@ -15,4 +15,4 @@ Reply.belongsTo(User, {
     onDelete: 'CASCADE'
 })
 
-module.exports = {User, Post, Reply}
+module.exports = { User, Post, Reply }
