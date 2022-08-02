@@ -1,18 +1,19 @@
-<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-  <h5>Login</h5>
-  
+<form id="login-form">
   <div>
-    <p>Email <input type="text" name="email" class="login-form-field"></p>
+    <label for="login-username">Username: </label>
+    <input type="text" id="login-username" name="login-username">
   </div>
   <div>
-    <p>Password <input type="text" name="password" class="login-form-field"></p>
+    <label for="login-password">Password: </label>
+    <input type="password" id="login-password" name="login-password">
   </div>
   <div>
-    <a href="#">Forgot password?</a>
-    <button>Login</button>
+    <a href="#">Forgot password? Click here for help.</a>
   </div>
   <div>
     <a href="/register">New user? Click here to register.</a>
   </div>
+  <button id="login-btn">Submit</button>
+</form>
 
-</div>
+<script src="./js/login.js"></script>
