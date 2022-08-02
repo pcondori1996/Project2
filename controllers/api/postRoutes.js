@@ -3,6 +3,9 @@ const {Post} = require('../../models')
 const {update} = require('../../models/User')
 const withAuth = require('../../utils/auth')
 
+// host/api/posts/...
+
+// This route creates a new post
 router.post('/', withAuth, async (req, res) => {
     try {
         const newPost = await Post.create({
@@ -16,6 +19,7 @@ router.post('/', withAuth, async (req, res) => {
     }
 })
 
+// This route deletes a user based on post_id
 router.delete('/:id', withAuth, async (req, res) => {
     try {
         const postToBeDeleted = await Post.destroy({
@@ -35,6 +39,7 @@ router.delete('/:id', withAuth, async (req, res) => {
     }
 })
 
+// This route updates a post based on post_id
 router.put('/:id', withAuth, async (req, res) => {
     Post.update(req.body, {
         where: {
