@@ -6,7 +6,7 @@ class Reply extends Model {}
 Reply.init(
     {
         content: {
-            type: DataTypes.STRING,
+            type: DataTypes.TEXT,
             allowNull: false
         },
         time_posted: {
@@ -20,7 +20,7 @@ Reply.init(
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'comment',
+        modelName: 'reply',
     }
 )
 
