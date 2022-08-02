@@ -1,4 +1,4 @@
-const loginPage = document.getElementById('login-page')
+const loginForm = document.getElementById('login-form')
 
 const login = async(e) => {
   e.preventDefault()
@@ -8,7 +8,7 @@ const login = async(e) => {
   const password = document.getElementById('login-password').value.trim()
 
   if(username && password) {
-    const response = await fetch('/api/users/login/', {
+    const response = await fetch('/api/users/login', {
       method: 'POST',
       body: JSON.stringify({
         username, password

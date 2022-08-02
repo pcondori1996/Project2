@@ -23,6 +23,10 @@
         <a class="nav-link fw-bold py-1 px-0 navButtons" href="#">Forum</a>
         <a class="nav-link fw-bold py-1 px-0 navButtons" href="#">Post item</a>
         <a class="nav-link fw-bold py-1 px-0 navButtons" href="#">Search item</a>
+        {{#if loggedIn}}
+        <a class="nav-link fw-bold py-1 px-0 navButtons" href="#" id="logout">Log Out</a>
+        <script src="/js/logout.js"></script>
+        {{/if}}
       </nav>
     </div>
   </header>
@@ -33,6 +37,6 @@
 
 </div>
     {{!-- script tag from  --}}
-    <script src="/Project2/public/js/script.js"></script>
+    <script src="/js/main.js"></script>
 </body>
 </html>
