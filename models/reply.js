@@ -16,7 +16,15 @@ Reply.init(
         },
     },
     {
+<<<<<<< HEAD
         sequelize
+=======
+        sequelize,
+        timestamps: false,
+        freezeTableName: true,
+        underscored: true,
+        modelName: 'comment',
+>>>>>>> dc3f3e26d33752dddafb4af283a4c6361d39ea6e
     }
 )
 
