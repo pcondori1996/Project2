@@ -1,4 +1,5 @@
 const registerForm = document.getElementById('register-form')
+console.log('testing')
 
 const register = async(e) => {
     e.preventDefault()
