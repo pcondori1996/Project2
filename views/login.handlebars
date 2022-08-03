@@ -1,21 +1,22 @@
-<form id="login-form">
-  <div>
+<form id="login-form" class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+  <div class="my-2">
     <label for="login-username">Username: </label>
     <input type="text" id="login-username" name="login-username">
   </div>
-  <div>
+  <div class="my-2">
     <label for="login-password">Password: </label>
     <input type="password" id="login-password" name="login-password">
   </div>
-  <div>
+  <div class="my-2">
     <a href="#">Forgot password? Click here for help.</a>
   </div>
-  <div>
+  <div class="my-2">
     <a href="/register">New user? Click here to register.</a>
   </div>
-  <button id="login-btn">Submit</button>
+  <div class="d-grid gap-2 col-2 mt-2 mx-auto">
+    <button id="login-btn" type="button" class="btn btn-primary">Submit</button>
+  </div>
 </form>
-</div>
 
 {{!-- Our own customized script --}}
 <script src="/js/login.js"></script>
