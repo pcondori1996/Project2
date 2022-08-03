@@ -18,7 +18,7 @@ const login = async(e) => {
       }
     })
     if(response.ok) {
-      document.location.replace('/dashboard');
+      document.location.replace('/forum');
     } else {
       alert(response.statusText);
     }
