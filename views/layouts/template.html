@@ -55,7 +55,7 @@
       } */
     </style> -->
 
-
+  <!-- naigation/header in main handlebars -->
   <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
     <header class="mb-auto">
       <div>
@@ -70,6 +70,8 @@
       </div>
     </header>
 
+
+    <!-- homrpage handlebars -->
     <main class="px-3">
       <br>
       <br>
@@ -88,6 +90,45 @@
       </p> -->
     </main>
 
+
+
+    
+    <!-- Make Forums Post Handlebar  -->
+    <h1>Post into our Disccusion Forum!</h1>
+    <br>
+
+    <form name="PostForum" id="PostForums" method="POST" />
+
+    <div class="form-group" id="PostDescipt">
+      <label for="login-username">Description of the item: </label>
+      <input type="text" class="form-control" id="login-password" aria-describedby="emailHelp"
+        placeholder="Description">
+    </div>
+    <br>
+
+    <div class="dropdown">
+      <label for="category">What category of discussion is this?   </label>
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="category" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">
+        Categories
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="#">Prequels</a>
+        <a class="dropdown-item" href="#">Obi-Wan</a>
+        <a class="dropdown-item" href="#">Dark side</a>
+      </div>
+    </div>
+    <br>
+    <button class="btn btn-secondary " type="button" id="searchSubmit" data-toggle="dropdown" aria-haspopup="true"
+      aria-expanded="false">
+      Submit
+    </button>
+    </form>
+    <br>
+    <br>
+
+
+    <!-- forums handlebars. Needs code to generate it with database content -->
     <div class="container mt-100">
       <div class="row">
         <div class="col-md-12">
@@ -185,16 +226,19 @@
 
 
     <!-- Search handlebar  -->
+    <h1>Search</h1>
+
     <form name="searchForm" id="searchForm" method="POST" />
     <div class="dropdown">
+      <h3>Which category:</h3>
       <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
         aria-haspopup="true" aria-expanded="false">
-        Dropdown button
+        Categories
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="#">Action</a>
-        <a class="dropdown-item" href="#">Another action</a>
-        <a class="dropdown-item" href="#">Something else here</a>
+        <a class="dropdown-item" href="#">Cat1</a>
+        <a class="dropdown-item" href="#">Cat2</a>
+        <a class="dropdown-item" href="#">Cat3</a>
       </div>
     </div>
     </form>
@@ -203,8 +247,45 @@
 
 
 
+    <!-- Post Handle bar  -->
+    <h1>Post into our database!</h1>
+    <h3>Users can search for items</h3>
+    <br>
+
+    <form name="PostForm" id="PostForm" method="POST" />
+
+    <div class="form-group" id="PostDescipt">
+      <label for="login-username">Description of the item: </label>
+      <input type="text" class="form-control" id="login-password" aria-describedby="emailHelp"
+        placeholder="Description">
+    </div>
+    <br>
+
+    <div class="dropdown">
+      <label for="category">What category would you like to search in?   </label>
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="category" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">
+        Categories
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="#">Cat1</a>
+        <a class="dropdown-item" href="#">Cat2</a>
+        <a class="dropdown-item" href="#">Cat3</a>
+      </div>
+    </div>
+    <br>
+    <button class="btn btn-secondary " type="button" id="searchSubmit" data-toggle="dropdown" aria-haspopup="true"
+      aria-expanded="false">
+      Submit
+    </button>
+    </form>
+    <br>
+    <br>
 
 
+
+
+    <!-- footer and script section in every handlbars -->
     <footer class="mt-auto text-white-50 ">
       <p class="text-muted">By Jedi Masters: Paulo Sergio Condori Pinedo, Josh Hawk, Matthew (Hunter) Steffner</p>
       <p class="text-muted">By Sith Lord: Charles Morton</p>
@@ -220,6 +301,8 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
+
+
   <script src="../.."></script>
 </body>
 
