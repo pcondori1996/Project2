@@ -17,11 +17,10 @@
         <h5 class="float-md-start mb-0"><a href="/" style="color: white; text-decoration: none">MAY THE FORCE BE WITH YOU</a></h5>
         <nav class="nav nav-masthead justify-content-center float-md-end mainNavHolder">
           <!-- <a class="nav-link fw-bold py-1 px-0 active navButtons" aria-current="page" href="#">Login</a> -->
-          
+          {{#if logged_in}}
           <a class="nav-link fw-bold py-1 px-0 navButtons" href="#">Forum</a>
           <a class="nav-link fw-bold py-1 px-0 navButtons" href="#">Post item</a>
           <a class="nav-link fw-bold py-1 px-0 navButtons" href="#">Search item</a>
-          {{#if logged_in}}
           <a class="nav-link fw-bold py-1 px-0 navButtons" href="#" id="logout">Log Out</a>
           <script src="/js/logout.js"></script>
           {{else}}
