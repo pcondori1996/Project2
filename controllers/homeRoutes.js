@@ -28,7 +28,7 @@ router.get('/', async (req, res) => {
 
         
 
-        res.render('homepage', {
+        res.render('landing', {
             postSerialized,
             logged_in: req.session.logged_in
         })
@@ -51,7 +51,7 @@ router.get('/post/:id', async (req, res) => {
 
         const post = postFromId.get({plain: true})
 
-        res.render('editpost', {
+        res.render('editPost', {
             post,
             logged_in: req.session.logged_in
         })
@@ -114,7 +114,7 @@ router.get('/dashboard', async (req, res) => {
 router.get('/writepost', async (req,res) => {
     try {
         if(req.session.logged_in) {
-            res.render('writepost')
+            res.render('writePost')
         } else {
             res.redirect('login')
         }
@@ -130,7 +130,7 @@ router.get('/editpost/:id', async (req, res) => {
             const postSerialized = postFromId.map((post) => post.get({
                 plain: true
             }))
-            res.render('editpost')
+            res.render('editPost')
         } else {
             res.redirect('login')
         }
