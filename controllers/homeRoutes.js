@@ -133,9 +133,13 @@ router.get('/editpost/:id', async (req, res) => {
 router.get('/profile/:id', async (req, res) => {
     try {
         if(req.session.logged_in && req.session.userId == req.params.id) {
-            
+            const userPosts = await Post.findAll({
+                where: {user_id: req.params.id} 
+            })
+            serializedPosts = userPosts.map(post => post.get({ plain: true}));
+            serializedPosts.reverse();
             res.render('profile', {
-                renderUpdateButton: true,
+                serializedPosts,
                 logged_in: req.session.logged_in
             })
         } else {

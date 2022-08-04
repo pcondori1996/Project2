@@ -1,5 +1,7 @@
 <h1>My Profile</h1>
-
-{{#each serializedPosts as |post|}}
-{{> post-details}}
-{{/each}}
+<div id="posts">
+    {{#each serializedPosts as |post|}}
+    {{> post-details renderUpdateButton=true}}
+    {{/each}}
+</div>
+<script src="/js/profile.js"></script>
