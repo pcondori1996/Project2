@@ -28,13 +28,18 @@ router.get('/post/:id', async (req, res) => {
                 {
                     model: User,
                     attributes: ['username']
+                },
+                {
+                    model: Reply,
+                    include: [User]
                 }
             ]
         })
 
         const post = postFromId.get({plain: true})
+        console.log(post)
 
-        res.render('editPost', {
+        res.render('post', {
             post,
             logged_in: req.session.logged_in
         })
