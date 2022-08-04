@@ -93,7 +93,9 @@ router.get('/forum', async (req, res) => {
 router.get('/writepost', async (req,res) => {
     try {
         if(req.session.logged_in) {
-            res.render('writePost')
+            res.render('writePost', {
+                logged_in: req.session.logged_in
+            })
         } else {
             res.redirect('/login')
         }
