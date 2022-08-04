@@ -1,0 +1,34 @@
+<h1>Edit Post</h1>
+
+<form name="editPostForm" id="postForm">
+    <div class="form-group">
+        <label for="titleInput">Title</label>
+        <input class="form-control" id="titleInput" value='{{postSerialized.title}}'>
+    </div>
+    <div class="form-group">
+        <label for="contentInput">Description</label>
+        <textarea class="w-100 rounded" id="contentInput">{{postSerialized.content}}</textarea>
+    </div>
+    <div class="dropdown">
+        <label for="dropdownMenuButton">Select the category your post belongs to: </label>
+        <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">
+        {{postSerialized.category}}
+        </button>
+        <div class="dropdown-menu" id="options" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="#">Cat1</a>
+          <a class="dropdown-item" href="#">Cat2</a>
+          <a class="dropdown-item" href="#">Cat3</a>
+        </div>
+    </div>
+    <div class="form-group">
+        <button class="btn btn-primary" id="submitButton">Post</button>
+    </div>
+</form>
+<br>
+<br>
+
+
+
+     {{!-- Our own customized script  --}}
+<script src="/js/handlePost.js"></script>
