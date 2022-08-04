@@ -1,27 +1,30 @@
-   <h1>Search</h1>
-   <br>
-   <br>
+<div>
 
-    <form name="searchForm" id="searchForm" method="POST" />
-    <div class="dropdown">
-      <h3>Which category:</h3>
-      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-        aria-haspopup="true" aria-expanded="false">
-        Categories
-      </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="#">Cat1</a>
-        <a class="dropdown-item" href="#">Cat2</a>
-        <a class="dropdown-item" href="#">Cat3</a>
-      </div>
+  <h1 class="mb-5">Search</h1>
+
+  <div class="dropdown mb-2">
+    <label for="searchOption1">Search by category: </label>
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="searchOption1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Choose Category</button>
+    <div class="dropdown-menu" id="searchItems1" aria-labelledby="searchOption1">
+      <a class="dropdown-item" href="#">Category1</a>
+      <a class="dropdown-item" href="#">Category2</a>
+      <a class="dropdown-item" href="#">Category3</a>
+      <a class="dropdown-item" href="#">Category4</a>
     </div>
-{{!-- Copy and paste lines 3-14 to make other buttons for more search
-requirements --}}
+  </div>
 
-    </form>
-    <br>
-    <br>
+  <div class="mb-2">
+    <label for="searchOption2">Search by user: </label>
+    <input type="text" id="searchOption2" name="searchOption2" placeholder="username">
+  </div>
 
+  <div class="form-group mt-4">
+    <button class="btn btn-primary" id="searchBtn">Search</button>
+  </div>
 
-{{!-- Our customized script --}}
-<script src=""></script>
+  <section id="search-container"></section>
+
+</div>
+
+<!-- Importing customized script for search.handlebars -->
+<script src="/js/search.js"></script>
