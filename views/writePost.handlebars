@@ -4,23 +4,40 @@
 
     <form name="PostForm" id="PostForm" method="POST" />
 
+    <div class="form-group" id="PostTitle">
+      <label for="TitlH">Title of the item: </label>
+      <input type="text" class="form-control" id="TitleH" aria-describedby="title"
+        placeholder="Title....">
+    </div>
+    <br>
+
     <div class="form-group" id="PostDescipt">
-      <label for="login-username">Description of the item: </label>
-      <input type="text" class="form-control" id="login-password" aria-describedby="emailHelp"
-        placeholder="Description">
+      <label for="DescriptionValu">Description of the item: </label>
+      <input type="text" class="form-control" id="DescriptionValue" aria-describedby="emailHelp"
+        placeholder="Description....">
+    </div>
+    <br>
+
+    <div class="form-group" id="PostURL">
+      <label for="URLValue">Description of the item: </label>
+      <input type="text" class="form-control" id="URLValue" aria-describedby="emailHelp"
+        placeholder="Description....">
     </div>
     <br>
 
     <div class="dropdown">
       <label for="category">What category would you like to search in?   </label>
-      <button class="btn btn-secondary dropdown-toggle" type="button" id="category" data-toggle="dropdown"
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="categorydata" data-toggle="dropdown"
         aria-haspopup="true" aria-expanded="false">
         Categories
       </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="#">Cat1</a>
-        <a class="dropdown-item" href="#">Cat2</a>
-        <a class="dropdown-item" href="#">Cat3</a>
+
+
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="CategoryOptions>
+        <a class="dropdown-item" value="Books/Comics">Books/Comics</a>
+        <a class="dropdown-item" value="Clothing">"Clothing"</a>
+        <a class="dropdown-item" value="Toys/Collectable">Toys/Collectable</a>
+        <a class="dropdown-item" value="Game">Game</a>
       </div>
     </div>
     <br>
@@ -35,4 +52,4 @@
 
 
      {{!-- Our own customized script  --}}
-<script src=""></script>
+<script src=""></script>goog

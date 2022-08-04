@@ -17,4 +17,6 @@ if (process.env.JAWSDB_URL) {
   );
 }
 
+
+// modules is in 22 intially
 module.exports = sequelize;
