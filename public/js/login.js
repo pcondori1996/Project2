@@ -1,48 +1,55 @@
 const loginForm = document.getElementById('login-form')
-const ResetUInfo  = document.getElementById('ResetUInfo')
+// const ResetUInfo  = document.getElementById('ResetUInfo')
 
-const nodemailer = require('nodemailer');
-require('dotenv').config()
+// const nodemailer = require('nodemailer');
+// require('dotenv').config()
 
 
 //NODEMAILER & FORGOT PASSWORD FUNCIONALITY
-const sendMail = () => {
-//step 1 
-let transporter = nodemailer.createTransport({
-  service: 'yahoo',
-  auth: {
-    user: process.env.EMAIL,
-    pass: process.env.PASSWORD
-  }
-})
+// const sendMail = () => {
+// //step 1 
+// let transporter = nodemailer.createTransport({
+//   service: 'yahoo',
+//   auth: {
+//     user: process.env.EMAIL,
+//     pass: process.env.PASSWORD
+//   }
+// })
 
-//step 2
-let mailOptions = {
-  from: 'wookiesgold@yahoo.com',
-  to: 'paulocondori1@gmail.com',
-  subject: 'Nodemailer',
-  text: 'It works!'
-};
+// //step 2
+// let mailOptions = {
+//   from: 'wookiesgold@yahoo.com',
+//   to: 'paulocondori1@gmail.com',
+//   subject: 'Nodemailer',
+//   text: 'It works!'
+// };
 
-//Step 3
-transporter.sendMail(mailOptions, function(err, data) {
-  if (err) {
-    console.log('Email was not sent') 
-  }else{
-    console.log('Email was Sent')
-  }
-})
-// Regular ^^^^^
-}
-  ResetUInfo.addEventListener('submit', sendMail);
+// //Step 3
+// transporter.sendMail(mailOptions, function(err, data) {
+//   if (err) {
+//     console.log('Email was not sent') 
+//   }else{
+//     console.log('Email was Sent')
+//   }
+// })
+// // Regular ^^^^^
+// }
+//   ResetUInfo.addEventListener('submit', sendMail);
 
 // LOGIN FUNCTIONALITY
 const login = async(e) => {
   e.preventDefault()
 
   const username = document.getElementById('login-username').value.trim();
+  const password = document.getElementById('login-password').value.trim();
 
-  const password = document.getElementById('login-password').value.trim()
+  if (!username) {
+    showInvalid('login-username');
+  }
+
+  if (!password) {
+    showInvalid('login-password');
+  }
 
   if(username && password) {
     const response = await fetch('/api/users/login', {
@@ -60,6 +67,23 @@ const login = async(e) => {
       alert(response.statusText);
     }
   }
+}
+
+const showInvalid = (elementName) => {
+  const element = document.getElementById(elementName)
+  // sets the border of the input to be red
+  element.setAttribute('class', `${element.getAttribute('class')} border-danger`);
+  // grabs the parent element of the input box
+  const parentDiv = element.parentElement;
+  // creates a new <small> element
+  const small = document.createElement('small');
+  const newLine = document.createElement('br');
+  // sets the classes and text of the <small> object appropriately
+  small.setAttribute('class', 'form-text text-danger');
+  small.textContent = 'This field cannot be left blank';
+  // appends the new <small> element to the page
+  parentDiv.appendChild(newLine);
+  parentDiv.appendChild(small);
 }
 
 loginForm.addEventListener('submit', login);
