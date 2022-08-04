@@ -134,6 +134,19 @@ router.get('/editpost/:id', async (req, res) => {
     }
 })
 
+// This takes users to the search page
+router.get('/search', async (req,res) => {
+    try {
+        if(req.session.logged_in) {
+            res.render('search')
+        } else {
+            res.redirect('/login')
+        }
+    } catch (err) {
+        res.status(500).json(err)
+    }
+})
+
 router.get('/profile/:id', async (req, res) => {
     try {
         if(req.session.logged_in && req.session.userId == req.params.id) {
