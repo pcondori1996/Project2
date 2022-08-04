@@ -40,6 +40,7 @@ router.get('/post/:id', async (req, res) => {
         console.log(post)
 
         res.render('post', {
+            userId: req.session.userId,
             post,
             logged_in: req.session.logged_in
         })
@@ -86,6 +87,7 @@ router.get('/forum', async (req, res) => {
             allUserPostsSerialized.reverse();
             // renders the forum page, and sends the posts to the handlebars logic
             res.render('forum', {
+                userId: req.session.userId,
                 allUserPostsSerialized,
                 logged_in: req.session.logged_in
             })
@@ -102,6 +104,7 @@ router.get('/writepost', async (req,res) => {
     try {
         if(req.session.logged_in) {
             res.render('writePost', {
+                userId: req.session.userId,
                 logged_in: req.session.logged_in
             })
         } else {
@@ -119,6 +122,7 @@ router.get('/editpost/:id', async (req, res) => {
             const postSerialized = postFromId.get({ plain: true });
 
             res.render('editPost', {
+                userId: req.session.userId,
                 postSerialized,
                 logged_in: req.session.logged_in
             })
@@ -139,6 +143,8 @@ router.get('/profile/:id', async (req, res) => {
             serializedPosts = userPosts.map(post => post.get({ plain: true}));
             serializedPosts.reverse();
             res.render('profile', {
+                showLogout: true,
+                userId: req.session.userId,
                 serializedPosts,
                 logged_in: req.session.logged_in
             })
