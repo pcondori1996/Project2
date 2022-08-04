@@ -130,4 +130,20 @@ router.get('/editpost/:id', async (req, res) => {
     }
 })
 
+router.get('/profile/:id', async (req, res) => {
+    try {
+        if(req.session.logged_in && req.session.userId == req.params.id) {
+            
+            res.render('profile', {
+                renderUpdateButton: true,
+                logged_in: req.session.logged_in
+            })
+        } else {
+            res.redirect('/login')
+        }
+    } catch(err) {
+        res.status(500).json(err)
+    }
+})
+
 module.exports = router
