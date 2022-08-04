@@ -1,43 +1,9 @@
 const loginForm = document.getElementById('login-form')
-// const ResetUInfo  = document.getElementById('ResetUInfo')
+const resetUser = document.getElementById('ResetUInfo')
 
-// const nodemailer = require('nodemailer');
-// require('dotenv').config()
-
-
-//NODEMAILER & FORGOT PASSWORD FUNCIONALITY
-// const sendMail = () => {
-// //step 1 
-// let transporter = nodemailer.createTransport({
-//   service: 'yahoo',
-//   auth: {
-//     user: process.env.EMAIL,
-//     pass: process.env.PASSWORD
-//   }
-// })
-
-// //step 2
-// let mailOptions = {
-//   from: 'wookiesgold@yahoo.com',
-//   to: 'paulocondori1@gmail.com',
-//   subject: 'Nodemailer',
-//   text: 'It works!'
-// };
-
-// //Step 3
-// transporter.sendMail(mailOptions, function(err, data) {
-//   if (err) {
-//     console.log('Email was not sent') 
-//   }else{
-//     console.log('Email was Sent')
-//   }
-// })
-// // Regular ^^^^^
-// }
-//   ResetUInfo.addEventListener('submit', sendMail);
 
 // LOGIN FUNCTIONALITY
-const login = async(e) => {
+const login = async (e) => {
   e.preventDefault()
 
   const username = document.getElementById('login-username').value.trim();
@@ -51,7 +17,7 @@ const login = async(e) => {
     showInvalid('login-password');
   }
 
-  if(username && password) {
+  if (username && password) {
     const response = await fetch('/api/users/login', {
       method: 'POST',
       body: JSON.stringify({
@@ -61,7 +27,7 @@ const login = async(e) => {
         'Content-type': 'application/json; charset=UTF-8',
       }
     })
-    if(response.ok) {
+    if (response.ok) {
       document.location.replace('/forum');
     } else {
       alert(response.statusText);
@@ -86,7 +52,34 @@ const showInvalid = (elementName) => {
   parentDiv.appendChild(small);
 }
 
+
+
 loginForm.addEventListener('submit', login);
 
+resetUser.addEventListener('click', async (e) => {
+  e.preventDefault()
+  console.log('Testing');
+  const response = await fetch('/api/mail/', {
+    method: 'POST',
+    // sendMail() {
+      const data = {
+        to: 'paulocondori1@gmail.com',
+        subject: 'Nodemail',
+        txt: 'It works'
+      };
 
+  
+      // return this.http.post('/api/mail', data).map(function (response) {
+      //   console.log(response.json());
+      
+    // });
 
+    // }
+  })
+    if(response.ok) {
+      document.location.replace('/')
+  } else {
+      alert(response.statusText)
+  }
+  
+  })
