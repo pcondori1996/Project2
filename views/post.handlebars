@@ -34,7 +34,7 @@
         {{!-- All this below is for comments to display. You can modify the styling, but do not modify anything within the brackets --}}
         <div class="card">
             <div class="card-header">
-                <h2>Comments</h2>
+                <h2 class="text-black">Comments</h2>
                 <div class="card-body text-dark">
                     {{#each post.replies}}
                     <h4> {{this.content}} </h4>
@@ -45,7 +45,7 @@
         </div>
         <div class="card">
             <div class="card-header">
-                <h2>Add Comment</h2>
+                <h2 class="text-black">Add Comment</h2>
                 <div class="card-body text-dark">
                     <form data-post="{{post.id}}" data-user="{{post.userId}}" id="comment-form">
                         <div>

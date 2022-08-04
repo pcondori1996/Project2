@@ -16,7 +16,7 @@ router.post('/', withAuth, async (req, res) => {
         await Reply.create({
             content: req.body.content,
             postId: req.body.postId,
-            userId: req.body.userId
+            userId: req.session.userId,
         })
         .then((replyData) => res.json(replyData))
         .catch(err => res.status(500).json(err))

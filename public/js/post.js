@@ -3,7 +3,8 @@ console.log('testing')
 
 const commentForm = document.getElementById('comment-form')
 const postId = commentForm.getAttribute('data-post')
-    console.log('postId: ' + postId)
+// const userId = commentForm.getAttribute('data-user')
+//     console.log()
 
 const addComment = async (e) => {
     e.preventDefault()
