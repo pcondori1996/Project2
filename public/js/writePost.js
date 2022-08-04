@@ -1,3 +1,4 @@
+
 const submitButton = document.getElementById('submitButton');
 const dropdownOptions = document.getElementById('options');
 
