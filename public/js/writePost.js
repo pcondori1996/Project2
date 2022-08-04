@@ -10,7 +10,7 @@ const search = async (e) => {
     const dropDownV = document.querySelector('#CategoryOption').value
     const titleText = document.getElementById('TitleH').value
     const descripText = document.getElementById('DescriptionValue').value
-    const urlText = document.getElementById('URLValue').value.
+    const urlText = document.getElementById('URLValue').value
 
 
         if(dropDownV && titleText && descriptText) {
