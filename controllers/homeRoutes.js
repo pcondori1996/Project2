@@ -1,4 +1,5 @@
 const router = require('express').Router()
+const e = require('express');
 const {Post , User, Reply} = require('../models')
 const withAuth = require('../utils/auth')
 
@@ -76,7 +77,9 @@ router.get('/forum', async (req, res) => {
             const allUserPostsSerialized = allUserPosts.map((post) => post.get({
                 plain: true
             }))
-
+            // flips the array so that the most recent posts appear at the top of the page
+            allUserPostsSerialized.reverse();
+            // renders the forum page, and sends the posts to the handlebars logic
             res.render('forum', {
                 allUserPostsSerialized,
                 logged_in: req.session.logged_in
@@ -107,11 +110,13 @@ router.get('/writepost', async (req,res) => {
 router.get('/editpost/:id', async (req, res) => {
     try {
         if(req.session.logged_in) {
-            const postFromId = await Post.findByPk(req.params.userId)
-            const postSerialized = postFromId.map((post) => post.get({
-                plain: true
-            }))
-            res.render('editPost')
+            const postFromId = await Post.findByPk(req.params.id);
+            const postSerialized = postFromId.get({ plain: true });
+
+            res.render('editPost', {
+                postSerialized,
+                logged_in: req.session.logged_in
+            })
         } else {
             res.redirect('/login')
         }
