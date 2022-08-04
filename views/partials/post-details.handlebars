@@ -7,8 +7,8 @@
             {{!-- <img
               src="https://i.kym-cdn.com/photos/images/newsfeed/001/701/565/6bc.jpg"
               class="d-block ui-w-40 rounded-circle" alt=""> --}}
-            <div class="media-body ml-3"> <a href="javascript:void(0)" data-abc="true">{{User.username}}</a>
-              <div class="text-muted small" data-time="{{time_posted}}" id="timeDiv">posted </div>
+            <div class="media-body ml-3"> <a class="text-muted" href="javascript:void(0)" data-abc="true">{{User.username}}</a>
+              <div class="text-muted small">posted {{timeFrom time_posted}} ago</div>
             </div>
           </div>
         </div>
@@ -30,4 +30,3 @@
     </div>
   </div>
 </div>
-<script src="/js/post.js"></script>
