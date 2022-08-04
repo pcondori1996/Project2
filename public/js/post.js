@@ -31,5 +31,6 @@ const addComment = async (e) => {
         }
     }
 }
+// testing
 
 commentForm.addEventListener('submit', addComment)
