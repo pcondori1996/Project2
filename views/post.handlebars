@@ -47,7 +47,7 @@
             <div class="card-header">
                 <h2>Add Comment</h2>
                 <div class="card-body text-dark">
-                    <form id="comment-form">
+                    <form data-post="{{post.id}}" data-user="{{post.userId}}" id="comment-form">
                         <div>
                             {{!-- <label for="comment-content">Content: </label> --}}
                             <textarea name="comment-content" id="comment-content" cols="45" rows="5"></textarea>
@@ -59,3 +59,5 @@
         </div>
       </div>
     </div>
+
+    <script src="/js/post.js"></script>
