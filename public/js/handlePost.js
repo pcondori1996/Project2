@@ -40,7 +40,7 @@ const createPost = async(event) => {
 
     // sends a POST request to append the table
     if (title && category !== 'Categories') {
-        if (document.location.pathname === '/writePost') {
+        if (document.location.pathname === '/writepost') {
             // POST request that sends the information to the api
             const response = await fetch('/api/posts/', {
                 method: 'POST',
@@ -82,7 +82,8 @@ const createPost = async(event) => {
 // sets the dropdown to the appropriate value of the button clicked
 const setCategory = async(event) => {
     event.preventDefault();
-    
+    // ensures that a single button has been clicked
+    if (event.target.getAttribute('class') !== 'dropdown-item') return;
     const categoriesButton = document.getElementById('dropdownMenuButton');
     categoriesButton.textContent = event.target.textContent.trim();
 }
