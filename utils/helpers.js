@@ -1,12 +1,4 @@
 module.exports = {
-    renderUpdateButton: (postId) => {
-        const updateLink = document.createElementById('a');
-        updateLink.setAttribute('href', `/editpost/${postId}`);
-        updateLink.setClass('text-muted');
-
-        return updateLink;
-    },
-
     timeFrom: (time) => {
         const now = new Date();
         const ago = now.getTime() - time.getTime();
