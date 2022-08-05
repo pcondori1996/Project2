@@ -1,4 +1,11 @@
+const dateFormat = require("dateformat");
+
+
 module.exports = {
+    timeandDateNow: (now) => {
+  return dateFormat(now, "dddd, mmmm dS, yyyy");
+    },
+
     timeFrom: (time) => {
         const now = new Date();
         const ago = now.getTime() - time.getTime();
