@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const {Post} = require('../../models')
+const {User, Post} = require('../../models')
 const {update} = require('../../models/User')
 const withAuth = require('../../utils/auth')
 
@@ -53,5 +53,42 @@ router.put('/:id', withAuth, async (req, res) => {
         res.json(err)
     })
 })
+
+router.get('/', async (req, res) => {
+    if (req.query.category && req.query.user) {
+        const user = await User.findOne({where: {username: req.query.user}});
+        const posts = await Post.findAll({
+            where: {
+                userId: user.id,
+                category: req.query.category
+            }
+        });
+        const serializedPosts = posts.map(post => post.get({ plain: true }));
+        res.status(200).json(serializedPosts);
+    }
+    else if (req.query.category) {
+        const posts = await Post.findAll({
+            where: {
+                category: req.query.category
+            }
+        });
+        const serializedPosts = posts.map(post => post.get({ plain: true }));
+        res.status(200).json(serializedPosts);
+    }
+    else if (req.query.user) {
+        const user = await User.findOne({where: {username: req.query.user}});
+        const posts = await Post.findAll({
+            where: {
+                userId: user.id
+            }
+        });
+        const serializedPosts = posts.map(post => post.get({ plain: true }));
+        res.render('search', {
+            logged_in:req.session.logged_in,
+            userId:req.session.userId,
+            serializedPosts
+        })
+    }
+});
 
 module.exports = router

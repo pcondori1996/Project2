@@ -6,10 +6,10 @@
     <label for="searchOption1">Search by category: </label>
     <button class="btn btn-secondary dropdown-toggle" type="button" id="searchOption1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Choose Category</button>
     <div class="dropdown-menu" id="searchItems1" aria-labelledby="searchOption1">
-      <a class="dropdown-item" href="#">Category1</a>
-      <a class="dropdown-item" href="#">Category2</a>
-      <a class="dropdown-item" href="#">Category3</a>
-      <a class="dropdown-item" href="#">Category4</a>
+      <a class="dropdown-item" href="#">cat1</a>
+      <a class="dropdown-item" href="#">cat2</a>
+      <a class="dropdown-item" href="#">cat3</a>
+      <a class="dropdown-item" href="#">cat4</a>
     </div>
   </div>
 
@@ -23,8 +23,13 @@
   </div>
 
   <section id="search-container"></section>
-
+<br>
+  {{#each serializedPosts as |post|}}
+    {{>post-details}}
+  {{/each}}
+  
 </div>
 
 <!-- Importing customized script for search.handlebars -->
 <script src="/js/search.js"></script>
+
