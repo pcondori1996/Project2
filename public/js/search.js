@@ -7,11 +7,11 @@ const search = async (event) => {
     const category = document.getElementById('searchOption1').textContent.trim();
     const user = document.getElementById('searchOption2').value.trim()
 
-    if (category && user) {
+    if (category !== 'Choose Category' && user) {
         document.location.replace(`/search?user=${user}&category=${category}`)
     } else if (user) {
     document.location.replace(`/search?user=${user}`);
-    } else if (category) {
+    } else if (category !== 'Choose Category') {
         document.location.replace(`/search?category=${category}`);
     }
 }
