@@ -3,17 +3,11 @@ console.log('testing')
 
 const commentForm = document.getElementById('comment-form')
 const postId = commentForm.getAttribute('data-post')
-// const userId = commentForm.getAttribute('data-user')
-//     console.log()
 
 const addComment = async (e) => {
     e.preventDefault()
 
     const content = document.getElementById('comment-content').value
-    // const postId = window.location.toString().split("/")[
-    //   window.location.toString().split("/").length - 1
-    // ];
-    // console.log(postId)
     
 
 
@@ -31,6 +25,5 @@ const addComment = async (e) => {
         }
     }
 }
-// testing
 
 commentForm.addEventListener('submit', addComment)
