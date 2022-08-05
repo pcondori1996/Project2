@@ -61,7 +61,7 @@ loginForm.addEventListener('submit', login);
 //   console.log('Testing');
 //   const response = await fetch('/api/mail/', {
 //     method: 'POST',
-//     // sendMail() {
+//     sendMail() {
 //       const data = {
 //         to: 'paulocondori1@gmail.com',
 //         subject: 'Nodemail',
@@ -69,17 +69,17 @@ loginForm.addEventListener('submit', login);
 //       };
 
   
-//       // return this.http.post('/api/mail', data).map(function (response) {
-//       //   console.log(response.json());
+//       return this.http.post('/api/mail', data).map(function (response) {
+//         console.log(response.json());
       
-//     // });
+//     });
 
-//     // }
+//     }
 //   })
-//     if(response.ok) {
-//       document.location.replace('/')
-//   } else {
-//       alert(response.statusText)
-//   }
+  //   if(response.ok) {
+  //     document.location.replace('/')
+  // } else {
+  //     alert(response.statusText)
+  // }
   
-//   })
+  // })
