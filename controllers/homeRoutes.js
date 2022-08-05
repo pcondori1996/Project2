@@ -204,4 +204,11 @@ router.get('/profile/:id', async (req, res) => {
     }
 })
 
+router.get('/recovery', async (req, res) => {
+    try {
+        res.render('recovery');
+    } catch(err) {
+        res.status(500).json(err);
+    }
+});
 module.exports = router

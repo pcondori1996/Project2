@@ -1,64 +1,61 @@
-// const nodemailer = require('nodemailer');
-// const router = require('express').Router()
-// require('dotenv').config()
+require('dotenv').config();
+const router = require("express").Router();
+const nodemailer = require('nodemailer');
+const { User } = require('../../models');
 
+// creates a transporter that is used to deliver emails
+const transporter = nodemailer.createTransport({
+    host: 'smtp.office365.com',
+    port: 587,
+    secure: false,
+    auth: {
+        user: process.env.EMAIL_USERNAME,
+        pass: process.env.EMAIL_PASSWORD
+    }
+});
 
-// router.post('/', (req, res) => {
-//     let transporter = nodemailer.createTransport({
-//         service: 'yahoo',
-//         auth: {
-//             user: process.env.EMAIL,
-//             pass: process.env.PASSWORD
-//         }
-//     })
+router.put('/', async(req, res) => {
+    try {
+        const pw = newPassword();
+        console.info(pw);
+        await User.update(
+        {
+            password: pw,
+        },
+        {
+            where: {
+                email: req.body.email
+            },
+            individualHooks:true,
+        });
+        sendEmail(req.body.email, pw);
+        res.status(200).json();
+    } catch(err) {
+        res.status(500).json(err);
+    }
+})
 
-//     let mailOptions = {
-//         from: 'wookiesgold@yahoo.com',
-//         to: 'paulocondori1@gmail.com',
-//         subject: 'NodemailerTest',
-//         text: 'It works'
-//     }
+async function sendEmail(recipient, newPassword) {
+    const message = {
+        from: process.env.EMAIL_USERNAME,
+        to: recipient,
+        subject: "Password Reset",
+        text: `This is your new password: ${newPassword}`,
+    }
 
-//     transporter.sendMail(mailOptions, function (err, res) {
-//         if(err){
-//             console.log('Error');
-//         } else {
-//             console.log('Email Sent');
-//         }
-//     })
-// });
+    transporter.sendMail(message, (err, info) => {
+        err ? console.log(err) : console.log(info);
+    });
+}
 
+function newPassword() {
+    const chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLNMOPQRSTUVQXYZ1234567890!@#$&()-'./+,";
+    const arrChars = chars.split('');
+    let password = '';
+    for (let i = 0; i < 8; i++) {
+        password += arrChars[Math.floor(Math.random()*arrChars.length)];
+    }
+    return password;
+}
 
-// module.exports = router
-
-    
-//     //step 1 
-//         // let transporter = nodemailer.createTransport({
-//         //   service: 'yahoo',
-//         //   auth: {
-//         //     user: process.env.EMAIL,
-//         //     pass: process.env.PASSWORD
-//         //   }
-//         // })
-        
-//         // //step 2
-//         // let mailOptions = {
-//         //   from: 'wookiesgold@yahoo.com',
-//         //   to: 'paulocondori1@gmail.com',
-//         //   subject: 'Nodemailer',
-//         //   text: 'It works!'
-//         // };
-        
-//         // //Step 3
-//         // transporter.sendMail(mailOptions, function(err, data) {
-//         //   if (err) {
-//         //     console.log('Email was not sent') 
-//         //   }else{
-//         //     console.log('Email was Sent')
-//         //   }
-//         // })
-//         // // Regular ^^^^^
-        
-// // }) 
-
-// // NODEMAILER & FORGOT PASSWORD FUNCIONALITY
+module.exports = router;

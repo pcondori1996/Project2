@@ -1,6 +1,5 @@
 const loginForm = document.getElementById('login-form')
 
-
 // LOGIN FUNCTIONALITY
 const login = async (e) => {
   e.preventDefault()
