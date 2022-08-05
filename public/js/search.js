@@ -1,3 +1,4 @@
+// Function to search for items
 const searchbutton = document.getElementById('searchBtn');
 const dropdownButton = document.getElementById('searchItems1');
 

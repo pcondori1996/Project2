@@ -1,4 +1,5 @@
 module.exports = {
+    // Used for the time
     timeFrom: (time) => {
         const now = new Date();
         const ago = now.getTime() - time.getTime();
