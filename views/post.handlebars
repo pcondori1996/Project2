@@ -38,7 +38,7 @@
                 <div class="card-body text-dark">
                     {{#each post.replies}}
                     <h4> {{this.content}} </h4>
-                    <p>Posted by: {{this.User.username}} at {{this.time_posted}}</p>
+                    <p>Posted by: {{this.User.username}} {{timeFrom this.time_posted}} ago</p>
                     {{/each}}
                 </div>
             </div>
