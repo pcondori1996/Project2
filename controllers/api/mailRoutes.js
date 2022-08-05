@@ -1,64 +1,34 @@
-// const nodemailer = require('nodemailer');
-// const router = require('express').Router()
-// require('dotenv').config()
+require('dotenv').config();
+const router = require("express").Router();
+const nodemailer = require('nodemailer');
 
 
-// router.post('/', (req, res) => {
-//     let transporter = nodemailer.createTransport({
-//         service: 'yahoo',
-//         auth: {
-//             user: process.env.EMAIL,
-//             pass: process.env.PASSWORD
-//         }
-//     })
+const recipient = 'Alkarias29@gmail.com';
 
-//     let mailOptions = {
-//         from: 'wookiesgold@yahoo.com',
-//         to: 'paulocondori1@gmail.com',
-//         subject: 'NodemailerTest',
-//         text: 'It works'
-//     }
+init();
 
-//     transporter.sendMail(mailOptions, function (err, res) {
-//         if(err){
-//             console.log('Error');
-//         } else {
-//             console.log('Email Sent');
-//         }
-//     })
-// });
+async function init() {
+    const transporter = nodemailer.createTransport({
+        host: 'smtp.office365.com',
+        port: 587,
+        secure: false,
+        auth: {
+            user: process.env.EMAIL_USERNAME,
+            pass: process.env.EMAIL_PASSWORD
+        }
+    });
+
+    const message = {
+        from: process.env.EMAIL_USERNAME,
+        to: recipient,
+        subject: "Password Reset",
+        text: "This is your new password: [insert password here]",
+    }
+
+    transporter.sendMail(message, (err, info) => {
+        err ? console.log(err) : console.log(info);
+    });
+}
 
 
-// module.exports = router
-
-    
-//     //step 1 
-//         // let transporter = nodemailer.createTransport({
-//         //   service: 'yahoo',
-//         //   auth: {
-//         //     user: process.env.EMAIL,
-//         //     pass: process.env.PASSWORD
-//         //   }
-//         // })
-        
-//         // //step 2
-//         // let mailOptions = {
-//         //   from: 'wookiesgold@yahoo.com',
-//         //   to: 'paulocondori1@gmail.com',
-//         //   subject: 'Nodemailer',
-//         //   text: 'It works!'
-//         // };
-        
-//         // //Step 3
-//         // transporter.sendMail(mailOptions, function(err, data) {
-//         //   if (err) {
-//         //     console.log('Email was not sent') 
-//         //   }else{
-//         //     console.log('Email was Sent')
-//         //   }
-//         // })
-//         // // Regular ^^^^^
-        
-// // }) 
-
-// // NODEMAILER & FORGOT PASSWORD FUNCIONALITY
+module.exports = router;
