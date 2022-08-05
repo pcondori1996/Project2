@@ -1,3 +1,4 @@
+// Functions for profile page
 const allPosts = document.getElementById('posts');
 
 const click = async(event) => {

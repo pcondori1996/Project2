@@ -1,13 +1,11 @@
+// Function to register user
 const registerForm = document.getElementById('register-form')
-console.log('testing')
 
 const register = async(e) => {
     e.preventDefault()
 
     const username = document.getElementById('register-username').value.trim()
-
     const password = document.getElementById('register-password').value.trim()
-
     const email = document.getElementById('register-email').value.trim()
 
     if(username && password && email) {
