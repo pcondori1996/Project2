@@ -1,4 +1,5 @@
 const router = require('express').Router()
+const { response } = require('express');
 const e = require('express');
 const {Post , User, Reply} = require('../models')
 const withAuth = require('../utils/auth')
@@ -138,7 +139,39 @@ router.get('/editpost/:id', async (req, res) => {
 router.get('/search', async (req,res) => {
     try {
         if(req.session.logged_in) {
-            res.render('search')
+            var serializedPosts = [];
+            if (req.query.category && req.query.user) {
+                const user = await User.findOne({where: {username: req.query.user}});
+                const posts = await Post.findAll({
+                    where: {
+                        userId: user.id,
+                        category: req.query.category
+                    }
+                });
+                serializedPosts = posts.map(post => post.get({ plain: true }));
+            }
+            else if (req.query.category) {
+                const posts = await Post.findAll({
+                    where: {
+                        category: req.query.category
+                    }
+                });
+                serializedPosts = posts.map(post => post.get({ plain: true }));
+            }
+            else if (req.query.user) {
+                const user = await User.findOne({where: {username: req.query.user}});
+                const posts = await Post.findAll({
+                    where: {
+                        userId: user.id
+                    }
+                });
+                serializedPosts = posts.map(post => post.get({ plain: true }));  
+            }
+            res.render('search', {
+                logged_in:req.session.logged_in,
+                userId:req.session.userId,
+                serializedPosts
+            })
         } else {
             res.redirect('/login')
         }
