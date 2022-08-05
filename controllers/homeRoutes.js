@@ -3,6 +3,7 @@ const e = require('express');
 const {Post , User, Reply} = require('../models')
 const withAuth = require('../utils/auth')
 
+
 // These are routes that go into the URL. They are not for fetch requests.
 
 // This takes users to the homepage
@@ -14,7 +15,8 @@ router.get('/', async (req, res) => {
             return
         }
 
-        res.render('landing');
+        res.render('landing', {now:new Date()
+        });
     } catch (err) {
         res.status(500).json(err)
     }
