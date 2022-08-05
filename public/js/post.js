@@ -3,12 +3,13 @@ const commentForm = document.getElementById('comment-form')
 // This will be pulled to know which user post ID this is connected to
 const postId = commentForm.getAttribute('data-post')
 
-
 const addComment = async (e) => {
     e.preventDefault()
 
     const content = document.getElementById('comment-content').value
-    // API call
+    
+
+
     if(content) {
         const response = await fetch('/api/replies/', {
             method: 'POST',
