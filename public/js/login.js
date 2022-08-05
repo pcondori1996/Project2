@@ -1,5 +1,4 @@
 const loginForm = document.getElementById('login-form')
-// const resetUser = document.getElementById('ResetUInfo')
 
 
 // LOGIN FUNCTIONALITY
@@ -56,30 +55,3 @@ const showInvalid = (elementName) => {
 
 loginForm.addEventListener('submit', login);
 
-// resetUser.addEventListener('click', async (e) => {
-//   e.preventDefault()
-//   console.log('Testing');
-//   const response = await fetch('/api/mail/', {
-//     method: 'POST',
-//     // sendMail() {
-//       const data = {
-//         to: 'paulocondori1@gmail.com',
-//         subject: 'Nodemail',
-//         txt: 'It works'
-//       };
-
-  
-//       // return this.http.post('/api/mail', data).map(function (response) {
-//       //   console.log(response.json());
-      
-//     // });
-
-//     // }
-//   })
-//     if(response.ok) {
-//       document.location.replace('/')
-//   } else {
-//       alert(response.statusText)
-//   }
-  
-//   })
