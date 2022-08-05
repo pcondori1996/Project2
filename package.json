@@ -3,7 +3,7 @@
   "version": "1.0.0", 
   "description": "Starwars Collector Website where people can make posts of things they are looking for. Additionally you can add products to our database and search through it. ",
   "engines": {
-    "node": "12.11.1"
+    "node": "16.16.0"
     },
   "main": "server.js",
   "scripts": {
