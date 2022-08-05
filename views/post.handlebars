@@ -13,19 +13,8 @@
           </div>
           
         </div>
-        {{!-- All this below is for comments to display. You can modify the styling, but do not modify anything within the brackets --}}
-        <div class="card">
-            <div class="card-header">
-                <h2 class="text-black">Comments</h2>
-                <div class="card-body text-dark">
-                    {{#each post.replies}}
-                    <h4> {{this.content}} </h4>
-                    <p>Posted by: {{this.User.username}} {{timeFrom this.time_posted}} ago</p>
-                    {{/each}}
-                </div>
-            </div>
-        </div>
         <div class="card-body text-dark">
+          <h2>{{post.title}}</h2>
           <p> {{post.content}} </p>
         </div>
       </div>
